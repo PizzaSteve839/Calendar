@@ -1,0 +1,70 @@
+:root{
+    --main-bg-color: #f4f4f4;
+    --main-text-color: #333;
+    --main-link-color: #007bff;
+    --main-link-hover-color: #0056b3;
+    --main-border-color: #ccc;
+    --main-border-radius: 5px;
+    --main-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --main-transition: 0.3s;
+    --main-font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    font-family: var(--main-font-family);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+    border-bottom: 1px solid var(--main-border-color);
+    margin: 10px;
+    border-radius: var(--main-border-radius);
+
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+    padding: 10px;
+    background: var(--main-bg-color);
+    color: var(--main-text-color);
+    border: 1px solid var(--main-border-color);
+    border-radius: var(--main-border-radius);
+    max-width: 1200px;
+}
+
+.day{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid var(--main-border-color);
+    border-radius: var(--main-border-radius);
+    transition: var(--main-transition);
+    text-align: left;
+    aspect-ratio: 1 / 1;
+    /*Fallback for browsers that do not support aspect-ratio*/
+}
+
+
+.day::before{
+    content: attr(data-day);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0.8rem;
+    color: var(--main-text-color);
+}
+
+.day:hover{
+    background: var(--main-bg-color);
+    box-shadow: var(--main-box-shadow);
+    cursor: pointer;
+}
