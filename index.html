@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Uxío Juncal">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Calendario</title>
+</head>
+<body>
+    <header>
+        <h1 id="monthDisplay"></h1>
+        <div id="monthButtons">
+            <button id="prevMonth">Anterior</button>
+            <button id="nextMonth">Siguiente</button>
+        </div>
+    </header>
+    
+    <div id="container">
+        <div id="calendar"></div>
+    </div>
+
+    <div id="newEventModal">
+        <h1>New Event</h1>
+        <input type="text" id="eventInput">
+        <button id="addEvent">Guardar</button>
+        <button id="cancelButton">Cancelar</button>
+    </div>
+    <div id="deleteEventModal"></div>
+    <div id="overlay"></div>
+    <script src="script.js"></script>
+</body>
+</html>

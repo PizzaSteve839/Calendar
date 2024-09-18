@@ -1,0 +1,183 @@
+:root {
+    --main-bg-color: #f0f4f8; /* Light neutral background */
+    --main-text-color: #2c3e50; /* Dark text color for readability */
+    --main-link-color: #3498db; /* Vibrant blue for links */
+    --main-link-hover-color: #2980b9; /* Darker blue for link hover */
+    --main-border-color: #bdc3c7; /* Neutral border color */
+    --main-border-radius: 5px;
+    --main-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --main-transition: 0.3s;
+    --main-font-family: 'Segoe UI', sans-serif;
+    --accent-color-1: #007bff; /* Blue accent color */
+    --accent-color-2: #0056b3; /* Darker blue accent color */
+    --highlight-color: #80d8ff; /* Light blue highlight color for current day */
+}
+
+body {
+    font-family: var(--main-font-family);
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--main-border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-height: 120px;
+}
+
+header h1 {
+    margin: 0;
+    margin-left: 5%;
+    padding: 0;
+    min-width: 260px;
+}
+
+.weekday {
+    text-align: center;
+    margin-left: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#currentDay{
+    background-color: var(--highlight-color);
+}
+
+#monthButtons{
+    margin: 5%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10%;
+}
+
+#nextMonth, #prevMonth{
+    height: 30px;
+    background-color: var(--accent-color-1); /* Use green accent color */
+    color: #fff; /* White text for contrast */
+    border: none;
+    border-radius: var(--main-border-radius);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color var(--main-transition);
+}
+
+#nextMonth:hover, #prevMonth:hover{
+    background-color: var(--accent-color-2); /* Change to red on hover */
+}
+
+#nextMonth:active, #prevMonth:active{
+    transform: translateY(1px);
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 5%;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1000px;
+    border: solid 1px var(--main-border-color);
+    border-top: none;
+}
+
+.day{
+    background-color: #fff;
+    color: var(--main-text-color);
+    border: 1px solid var(--main-border-color);
+    border-radius: var(--main-border-radius);
+    padding: 10px;
+    box-shadow: var(--main-box-shadow);
+    transition: background-color var(--main-transition);
+    height: 100px;
+    max-width: 100px;
+}
+
+.day:hover{
+    background-color: var(--main-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    transform: translateY(-2px); /* Slight lift effect */
+    cursor: pointer;
+}
+
+#currentDay:hover{
+    background-color: hsl(211, 100%, 60%);
+}
+
+#overlay{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+}
+
+#newEventModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Ensure it is on top of the overlay */
+    display: none; /* Hidden by default */
+}
+
+
+@media screen and (max-width: 600px){
+
+    header h1{
+        margin-left: 0;
+        text-align: center;
+        min-width: none;
+    }
+
+    header{
+        padding-top: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #monthButtons{
+        margin: 5%;
+        margin-right: none;
+        display: flex;
+        justify-content: space-around;
+        gap: 10%;
+    }
+
+    #calendar{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        justify-content: center;
+    }
+
+    .day{
+        height: 30px;
+        max-width: 30px;
+        font-size: .7rem;
+    }
+    
+}
