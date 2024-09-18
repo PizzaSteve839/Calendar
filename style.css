@@ -1,0 +1,151 @@
+:root{
+    background-color: black;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#calculator{
+    height: auto;
+    width: 50vw;
+    max-width: 400px;
+    border-radius: 15px;
+    min-width: calc(4*90px + 4*5px);
+    box-sizing: border-box;
+    position:relative;
+    background-color: black;
+}
+
+#calculator::after, #calculator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(to right,aqua,blue);
+    border-radius: 15px;
+    padding: 3px;
+}
+
+#calculator::after{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+#keys, #display {
+    width: 100%;  /* Full width of the calculator */
+    box-sizing: border-box;  /* Include padding and borders in size */
+}
+
+#keys{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+#calculateKey{
+    grid-column: span 3;
+    width: auto;
+    border-radius: 45px;
+    margin-top: 15px;
+    background: linear-gradient(325deg,green,aqua);
+    text-align:left;
+    padding-left: 15%;
+    font-size: 3rem;
+}
+
+#calculateKey:hover{
+    background: linear-gradient(135deg,hsl(120, 100%, 40%),hsl(180, 100%, 65%));
+}
+
+#calculateKey:active{
+    background: linear-gradient(135deg,hsl(120, 100%, 55%),hsl(180, 100%, 80%));
+}
+
+button{
+    border-radius: 50%;
+    width: 1fr;
+    height: 90px;
+    font-size: 2.5rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 500;
+    background: linear-gradient(135deg,aqua,blue);
+    color: white;
+}
+
+button:hover{
+    background: linear-gradient(315deg,hsl(180, 100%, 65%),hsl(240, 100%, 65%));
+    cursor: pointer;
+}
+
+button:active{
+    background: linear-gradient(315deg,hsl(180, 100%, 80%),hsl(240, 100%, 80%)) ;
+}
+
+.operator{
+    background:linear-gradient(315deg, yellow,black);
+}
+
+.operator:hover{
+    background:linear-gradient(315deg,hsl(0, 0%, 15%),hsl(60, 100%, 65%));
+}
+
+.operator:active{
+    background:linear-gradient(315deg,hsl(0, 0%, 30%),hsl(60, 100%, 80%));
+}
+
+#display{
+    height: 120px;
+    box-sizing: border-box;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    background: linear-gradient(315deg, hsl(0, 0%, 10%), hsl(0, 0%, 5%));
+    border: none;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+    overflow: hidden;
+    padding-left: 8%;
+
+}
+
+#displayContainer{
+    position: relative;
+}
+
+#displayContainer::after{
+    content: '';
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background:linear-gradient(to right,aqua,blue);
+}
+
+
+#clearKey{
+    background: linear-gradient(315deg, yellow,red);
+}
+
+#clearKey:hover{
+    background: linear-gradient(135deg, hsl(60, 100%, 65%),hsl(0, 100%, 65%));
+}
+
+#clearKey:active{
+    background: linear-gradient(315deg, hsl(60, 100%, 80%),hsl(0, 100%, 80%));
+}
