@@ -80,6 +80,29 @@ function initButtons(){
         nav--;
         load();
     });
+
+    document.getElementById('cancelButton').addEventListener('click', () => {closeModal()});
+    document.getElementById('saveEvent').addEventListener('click', () => {
+        saveEvent();
+        closeModal();
+    });
+}
+
+function closeModal(){
+    overlay.style.display = 'none';
+    document.getElementById('newEventModal').style.display = 'none';
+    load();
+}
+
+function saveEvent(){
+    if(document.getElementById('eventInput').value){
+        events.push({
+            date: clicked,
+            title: document.getElementById('eventInput').value
+        });
+    }else{
+        alert('Por favor, introduce un evento antes de guardar');
+    }
 }
 
 function openNewEventModal(date){
