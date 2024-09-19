@@ -68,6 +68,7 @@ header h1 {
     padding: 5px 10px;
     cursor: pointer;
     transition: background-color var(--main-transition);
+    font-family: var(--main-font-family);
 }
 
 #nextMonth:hover, #prevMonth:hover{
@@ -143,6 +144,42 @@ header h1 {
     display: none; /* Hidden by default */
 }
 
+#newEventModal h1 {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#eventInput{
+    border: solid 2px var(--main-text-color);
+    border-radius: var(--main-border-radius);
+    background-color: var(--main-bg-color);
+    height: 30px;
+    overflow: hidden;
+    padding: 5px;
+    width: 95%;
+    font-size: 1.2rem;
+    font-family: var(--main-font-family);
+    font-weight: 600;
+}
+
+#newEventModal button {
+    background-color: var(--accent-color-1);
+    color: white;
+    border: none;
+    border-radius: var(--main-border-radius);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color var(--main-transition);
+    margin-top: 20px;
+    font-family: var(--main-font-family);
+}
+
+#newEventModal button:hover {
+    background-color: var(--accent-color-2);
+    transform: translateY(2px);
+    transition: var(--main-transition);
+}
 
 @media screen and (max-width: 600px){
 

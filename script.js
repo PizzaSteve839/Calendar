@@ -47,9 +47,9 @@ function load(){
         if(i>paddingDays){
             daySquare.innerText = i - paddingDays;
             daySquare.classList.add('day');
-            daySquare.addEventListener('click', () => openNewEventModal(`${year}-${month + 1}-${i - paddingDays}`));
+            daySquare.addEventListener('click', () => openNewEventModal(`${i - paddingDays}/${month + 1}/${year}`));
             
-            let eventForDay = events.find(e => e.date === `${year}-${month + 1}-${i - paddingDays}`);
+            let eventForDay = events.find(e => e.date === `${i - paddingDays}/${month + 1}/${year}`);
             if(eventForDay){
                 let eventDiv = document.createElement('div');
                 eventDiv.classList.add('event');
@@ -100,6 +100,7 @@ function saveEvent(){
             date: clicked,
             title: document.getElementById('eventInput').value
         });
+        localStorage.setItem('event', JSON.stringify(events));
     }else{
         alert('Por favor, introduce un evento antes de guardar');
     }
