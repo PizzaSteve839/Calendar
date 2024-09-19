@@ -101,8 +101,6 @@ function saveEvent(){
             title: document.getElementById('eventInput').value
         });
         localStorage.setItem('event', JSON.stringify(events));
-    }else{
-        alert('Por favor, introduce un evento antes de guardar');
     }
 }
 
@@ -143,6 +141,12 @@ window.addEventListener('resize', () => {
     load();
 });
 
+document.getElementById('eventInput').addEventListener('keypress', (e) => {
+    if(e.key === 'Enter'){
+        saveEvent();
+        closeModal();
+    }
+});
 
 load();
 initButtons();

@@ -173,6 +173,7 @@ header h1 {
     transition: background-color var(--main-transition);
     margin-top: 20px;
     font-family: var(--main-font-family);
+    font-weight: 600;
 }
 
 #newEventModal button:hover {
