@@ -186,6 +186,19 @@ header h1 {
     transition: var(--main-transition);
 }
 
+#deleteEventModal{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    background-color: var(--main-bg-color);
+    padding: 20px;
+    border-radius: var(--main-border-radius);
+    box-shadow: var(--main-box-shadow);
+}
+
 @media screen and (max-width: 600px){
 
     header h1{

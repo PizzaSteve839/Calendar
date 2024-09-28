@@ -1,6 +1,6 @@
 let nav = 0;
 let clicked = null;
-let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+let events = localStorage.getItem('event') ? JSON.parse(localStorage.getItem('event')) : [];
 
 const weekday = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 const calendar = document.getElementById('calendar');
@@ -47,15 +47,19 @@ function load(){
         if(i>paddingDays){
             daySquare.innerText = i - paddingDays;
             daySquare.classList.add('day');
-            daySquare.addEventListener('click', () => openNewEventModal(`${i - paddingDays}/${month + 1}/${year}`));
             
             let eventForDay = events.find(e => e.date === `${i - paddingDays}/${month + 1}/${year}`);
+            console.log(eventForDay);
             if(eventForDay){
                 let eventDiv = document.createElement('div');
                 eventDiv.classList.add('event');
                 eventDiv.innerText = eventForDay.title;
                 daySquare.appendChild(eventDiv);
+                daySquare.addEventListener('click', () => openDeleteEventModal(`${i - paddingDays}/${month + 1}/${year}`));
+            }else{
+                daySquare.addEventListener('click', () => openNewEventModal(`${i - paddingDays}/${month + 1}/${year}`));
             }
+
         }
         else{
             daySquare.classList.add('padding');
@@ -82,11 +86,14 @@ function initButtons(){
         saveEvent();
         closeModal();
     });
+
+    document.getElementById('closeButton').addEventListener('click', () => {closeModal()});
 }
 
 function closeModal(){
     overlay.style.display = 'none';
     document.getElementById('newEventModal').style.display = 'none';
+    document.getElementById('deleteEventModal').style.display = 'none';
     load();
 }
 
@@ -102,15 +109,16 @@ function saveEvent(){
 
 function openNewEventModal(date){
     clicked = date;
-    const eventForDay = events.find(e => e.date === clicked);
-
-    if(eventForDay){
-        document.getElementById('eventInput').value = eventForDay.title;
-    }else{
-        document.getElementById('eventInput').value = '';
-    }
-
     document.getElementById('newEventModal').style.display = 'block';
+    overlay.style.display = 'block';
+}
+
+function openDeleteEventModal(date){
+    clicked = date;
+    document.getElementById('deleteEventModal').style.display = 'block';
+    const eventForDay = events.find(e => e.date === clicked);
+    document.getElementById('eventDate').innerText = clicked;
+    document.getElementById('eventId').innerText = eventForDay.title;
     overlay.style.display = 'block';
 }
 
