@@ -61,13 +61,9 @@ function load(){
             daySquare.classList.add('padding');
         }
         
-        if(i-paddingDays === day && nav ===0){
+        if(i-paddingDays === day && nav === 0){
             daySquare.id = 'currentDay';
         }
-
-        let eventText = document.createElement('div');
-        eventText.classList.add('event');
-        daySquare.appendChild(eventText);
     }
 }
 
