@@ -49,7 +49,6 @@ function load(){
             daySquare.classList.add('day');
             
             let eventForDay = events.find(e => e.date === `${i - paddingDays}/${month + 1}/${year}`);
-            console.log(eventForDay);
             if(eventForDay){
                 let eventDiv = document.createElement('div');
                 eventDiv.classList.add('event');
@@ -88,6 +87,10 @@ function initButtons(){
     });
 
     document.getElementById('closeButton').addEventListener('click', () => {closeModal()});
+    document.getElementById('deleteButton').addEventListener('click', () => {
+        deleteEvent();
+        closeModal();
+    });
 }
 
 function closeModal(){
@@ -105,6 +108,13 @@ function saveEvent(){
         });
         localStorage.setItem('event', JSON.stringify(events));
     }
+    document.getElementById('eventInput').value = '';
+}
+
+function deleteEvent(){
+    date = clicked;
+    events = events.filter(e => e.date !== clicked);
+    localStorage.setItem('event', JSON.stringify(events));
 }
 
 function openNewEventModal(date){
